@@ -45,6 +45,7 @@
 body {
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
+    
 }
 
 .container {
@@ -123,31 +124,39 @@ body {
 .burger {
     display: none;
     aspect-ratio: 5 / 3;
-    height: 30px;
+    height: 24px;
     position: relative;
     z-index: 99999;
+    cursor: pointer;
 }
 .burger > span {
     display: block;
     position: absolute;
     background: #000;
-    height: 3px;
+    height: 2px;
     width: 100%;
+    transition: 0.7s;
 }
 .burger > span:nth-child(1){
     top: 0;
+    transition: 0.7s;
+
 }
 .burger > span:nth-child(2){
     top: 50%;
     translate: 0 -50%;
+    transition: 0.7s;
+
 }
 .burger > span:nth-child(3){
     bottom: 0;
+    transition: 0.7s;
+
 }
 #burger_check:checked + .burger > span:nth-child(1) {
     top: 50%;
     translate: 0 -50%;
-    rotate: 45deg;
+    rotate: 225deg;
 }
 #burger_check:checked + .burger > span:nth-child(2) {
    display: none;
@@ -724,6 +733,36 @@ body {
 
 
 @media screen and (min-width: 577px) and (max-width: 1024px) {
+    .burger {
+        display: block;
+    }
+    .header_nav {
+        display: none;
+       
+    }
+    .header_list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    .header_item {
+        color: var(--color-white);
+    }
+    #burger_check:checked + .burger + .header_nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background: #000c;
+
+    }
     .hero_wrap {
         justify-content: center;
     }
